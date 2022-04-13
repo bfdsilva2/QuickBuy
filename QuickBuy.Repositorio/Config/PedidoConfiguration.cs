@@ -12,7 +12,7 @@ namespace QuickBuy.Repositorio.Config
   {
     public void Configure(EntityTypeBuilder<Pedido> builder)
     {
-      builder.HasKey();
+      builder.HasKey(u => u.Id);
 
       builder.Property(u => u.DataPedido)
         .IsRequired();

@@ -30,7 +30,9 @@ namespace QuickBuy.Web
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
       var connString = Configuration.GetConnectionString("QuickBuyDB");
       //services.AddDbContext<QuickBuyContexto>(options => options.UseMySql(connString, m => m.MigrationsAssembly("QuickBuy.Repositorio")));
-      services.AddDbContext<QuickBuyContexto>(options => options.UseSqlServer(connString, m => m.MigrationsAssembly("QuickBuy.Repositorio")));
+      services.AddDbContext<QuickBuyContexto>(options =>
+      options.UseLazyLoadingProxies()
+      .UseSqlServer(connString, m => m.MigrationsAssembly("QuickBuy.Repositorio")));
       // In production, the Angular files will be served from this directory
       services.AddSpaStaticFiles(configuration =>
       {

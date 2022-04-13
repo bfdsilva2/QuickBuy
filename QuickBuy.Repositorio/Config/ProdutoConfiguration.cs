@@ -20,7 +20,8 @@ namespace QuickBuy.Repositorio.Config
         .HasMaxLength(400);
 
       builder.Property(u => u.Preco)
-        .IsRequired();
+        .IsRequired()
+      .HasColumnType("00");
     }
   }
   
